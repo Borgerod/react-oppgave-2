@@ -1,100 +1,103 @@
 "use client";
-import { useState } from "react";
-import { MdOutlineCookie } from "react-icons/md";
 import { cn } from "@/lib/utils";
+import EmptyBowlIcon from "./EmptyBowlIcon";
 
-// ...existing code...
-type Props = {
-	visible?: boolean;
-	onChange?: (visible: boolean) => void;
-};
-
-export default function CallToAction({ visible, onChange }: Props) {
-	const [internalVisible, setInternalVisible] = useState(true);
-	const isControlled = visible !== undefined;
-	const isVisible = isControlled ? visible : internalVisible;
-
-	const setVisible = (v: boolean) => {
-		if (isControlled) {
-			onChange?.(v);
-		} else {
-			setInternalVisible(v);
-		}
-	};
-
+export default function CallToAction() {
 	return (
-		<div className={cn("absolute", "h-inherit w-inherit", "")}>
+		<div
+			className={cn(
+				"absolute",
+				"top-0 start-0",
+				"w-screen h-screen",
+				"backdrop-blur-xl",
+				"flex flex-col items-center justify-center align-middle",
+				"h-full w-full",
+
+				""
+			)}>
 			<div
 				className={cn(
-					"flex flex-col items-center justify-center align-middle",
-					"h-full w-full",
-					"backdrop-blur-md",
+					"flex max-w-3xl flex-col",
+					"items-center justify-center gap-5",
+					"rounded-3xl  p-10 text-center",
+					"bg-gray-700/80",
+					"bg-(--container)",
+					"gap-10",
+					"px-20",
 					""
-				)}
-			>
+				)}>
 				<div
 					className={cn(
-						"h-100",
-						"flex max-w-3xl flex-col",
-						"items-center justify-center gap-5",
-						"rounded-3xl bg-gray-700/80 p-10 text-center"
-					)}
-				>
-					<h1 className={cn("text-3xl font-bold")}>
-						Your limit has exceeded
+						"flex flex-col",
+						"justify-center content-evenly align-middle items-center",
+						"h-full w-full"
+					)}>
+					<h1 className={cn("text-2xl font-bold")}> Oh no!</h1>
+
+					<EmptyBowlIcon></EmptyBowlIcon>
+
+					<h1 className={cn("text-2xl font-bold -mt-5 z-1 ")}>
+						You are all out of cookies
 					</h1>
-					<p className="text-base text-gray-200">
-						Take a breather, review your preferences, and come back
-						ready to collect more cookies.
+				</div>
+
+				<div
+					className={cn(
+						"flex flex-col",
+						"justify-center",
+						"items-center",
+						"gap-2.5",
+						""
+					)}>
+					<h1
+						className={cn(
+							"text-4xl font-bold text-(--accent-light)"
+						)}>
+						Get access to unlimited cookies
+					</h1>
+
+					<div className="flex items-center content-center gap-5">
+						<p className="text-right">
+							Please review our plans to continue with our
+							services and become a part of the family!
+						</p>
+						<button
+							className={cn(
+								"px-5",
+								"h-10 w-80",
+								"text-(--container)",
+								"border-none",
+								"rounded-full",
+								"bg-(--accent-light)",
+								"hover:bg-(--accent)",
+
+								""
+							)}>
+							{" "}
+							View our plans{" "}
+						</button>
+					</div>
+				</div>
+
+				<div className="flex items-center content-center gap-5">
+					<p className="text-right">
+						If you already have an account, <br />
+						please <span className="font-bold">log in</span> to
+						continue
 					</p>
+					<button
+						className={cn(
+							"px-10 py-1.5",
+							"border border-(--forground) rounded-full",
+							"hover:border-(--accent-light)",
+							"hover:text-(--accent-light)",
+							""
+						)}>
+						{" "}
+						Log in{" "}
+					</button>
 				</div>
 			</div>
 		</div>
 	);
 }
-// ...existing code...// "use client";
-// import { useState } from "react";
-// import { MdOutlineCookie } from "react-icons/md";
-// import { cn } from "@/lib/utils";
-
-// export default function CallToAction() {
-// 	const [isVisible, setIsVisible] = useState(true);
-
-// 	return (
-// 		<div
-// 			className={cn(
-// 				"flex h-screen w-screen flex-col items-center justify-center gap-8",
-// 				"backdrop-blur-2xl"
-// 			)}
-// 		>
-// 			<button
-// 				type="button"
-// 				onClick={() => setIsVisible((prev) => !prev)}
-// 				className={cn(
-// 					"flex items-center gap-2 rounded-full border border-gray-500 px-4 py-2",
-// 					"text-sm font-semibold uppercase tracking-wide transition hover:bg-gray-700"
-// 				)}
-// 			>
-// 				<MdOutlineCookie className="text-lg" />
-// 				{isVisible ? "Hide" : "Show"} call to action
-// 			</button>
-
-// 			{isVisible && (
-// 				<div
-// 					className={cn(
-// 						"flex w-full max-w-3xl flex-col items-center justify-evenly gap-5",
-// 						"rounded-3xl bg-gray-700/70 p-10 text-center"
-// 					)}
-// 				>
-// 					<h1 className={cn("text-3xl font-bold")}>
-// 						Your limit has exceeded
-// 					</h1>
-// 					<p className="text-base text-gray-200">
-// 						Take a breather, review your preferences, and come back
-// 						ready to collect more cookies.
-// 					</p>
-// 				</div>
-// 			)}
-// 		</div>
-// 	);
-// }
