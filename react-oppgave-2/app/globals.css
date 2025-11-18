@@ -4,23 +4,37 @@
 	--background: #ffffff;
 	--foreground: #171717;
 	--container: lab(84.11% -0.9 -9.27);
-	--container-deep: lab(81.28% -0.39 -11.41);
+	--container-lowered: lab(81.28% -0.39 -11.41);
 	--accent: rgb(194, 119, 38);
 	--accent-muted: rgb(202, 194, 186);
 }
 
 @theme inline {
+	--color-accent: var(--accent);
+	--color-accent-light: var(--accent-light);
+	--color-accent-dark: var(--accent-dark);
+	--color-accent-muted: var(--accent-muted);
+
+	--color-container: var(--container);
+	--color-container-lowered: var(--container-lowered);
+	--color-container-raised: var(--container-raised);
+
 	--color-background: var(--background);
-	--color-foreground: var(--foreground);
 	--font-sans: var(--font-geist-sans);
 	--font-mono: var(--font-geist-mono);
+
+	--color-foreground: var(--foreground);
+	--color-foreground-darker: var(--foreground-darker);
+	--color-secondary: var(--secondary);
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
 		--background: #0a0a0a;
-		--container: lab(27.1134 -0.956401 -12.3224);
-		--container-deep: lab(8.11897 0.811279 -12.254);
+		--container: lab(30 -0.956401 -12.3224);
+		--container-raised: lab(40 -0.956401 -12.3224);
+		--container-lowered: lab(20 0.811279 -12.254);
+		/* --container-lowered: lab(8.11897 0.811279 -12.254); */
 		--accent-light: rgb(192, 145, 94);
 		--accent-dark: rgb(105, 65, 22);
 		--accent: rgb(194, 119, 38);
@@ -57,4 +71,28 @@ html::-webkit-scrollbar-thumb {
 
 html::-webkit-scrollbar-thumb:hover {
 	background: var(--highlight);
+}
+@utility bento-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: masonry; /* REAL MASONRY GRID */
+	gap: 1rem;
+}
+
+@utility bento-item {
+	background: rgb(30 30 30);
+	color: white;
+	border-radius: 1rem;
+	padding: 1rem;
+	width: fit-content;
+	height: fit-content;
+}
+.bento-grid {
+	gap: 1rem;
+}
+
+@supports (grid-template-rows: masonry) {
+	.bento-grid {
+		grid-template-rows: masonry;
+	}
 }
