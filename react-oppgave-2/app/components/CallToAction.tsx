@@ -9,10 +9,11 @@ export default function CallToAction() {
 				"absolute",
 				"top-0 start-0",
 				"w-screen h-screen",
-				"backdrop-blur-xl",
+				"backdrop-blur-3xl",
 				"flex flex-col items-center justify-center align-middle",
 				"h-full w-full",
-
+				"drop-shadow-2xl",
+				"backdrop-brightness-70",
 				""
 			)}>
 			<div
@@ -21,7 +22,7 @@ export default function CallToAction() {
 					"items-center justify-center gap-5",
 					"rounded-3xl  p-10 text-center",
 					"bg-gray-700/80",
-					"bg-(--container)",
+					"bg-container",
 					"gap-10",
 					"px-20",
 					""
@@ -49,10 +50,7 @@ export default function CallToAction() {
 						"gap-2.5",
 						""
 					)}>
-					<h1
-						className={cn(
-							"text-4xl font-bold text-(--accent-light)"
-						)}>
+					<h1 className={cn("text-4xl font-bold text-accent-light")}>
 						Get access to unlimited cookies
 					</h1>
 
@@ -65,11 +63,11 @@ export default function CallToAction() {
 							className={cn(
 								"px-5",
 								"h-10 w-80",
-								"text-(--container)",
+								"text-container",
 								"border-none",
 								"rounded-full",
-								"bg-(--accent-light)",
-								"hover:bg-(--accent)",
+								"bg-accent-light",
+								"hover:bg-accent",
 
 								""
 							)}>
@@ -89,12 +87,11 @@ export default function CallToAction() {
 						className={cn(
 							"px-10 py-1.5",
 							"border border-(--forground) rounded-full",
-							"hover:border-(--accent-light)",
-							"hover:text-(--accent-light)",
+							"hover:border-accent-light",
+							"hover:text-accent-light",
 							""
 						)}>
-						{" "}
-						Log in{" "}
+						Log in
 					</button>
 				</div>
 			</div>
