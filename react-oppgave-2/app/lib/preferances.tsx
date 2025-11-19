@@ -1,5 +1,5 @@
 export default function GetPreferences() {
-	let prefs = {
+	const prefs = {
 		theme: "dark",
 		language: "en",
 	};

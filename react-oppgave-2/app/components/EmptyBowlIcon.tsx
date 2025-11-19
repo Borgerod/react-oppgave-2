@@ -19,7 +19,7 @@ export default function EmptyBowlIcon() {
 
 			<div
 				className={cn(
-					"bg-(--container)",
+					"bg-container",
 					"w-20 h-20",
 					"col-span-full",
 					"row-start-2 row-span-full",

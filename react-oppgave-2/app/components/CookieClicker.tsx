@@ -30,7 +30,7 @@ export default class CookieClicker extends Component<CookieClickerProps> {
 	render() {
 		return (
 			<div className={cn("h-full", "w-full", "flex flex-col", "")}>
-				<h1 className={cn("text-3xl mb-5 text-(--accent-light)")}>
+				<h1 className={cn("text-3xl mb-5 text-accent-light")}>
 					COOKIE CLICKER
 				</h1>
 				<div
@@ -46,7 +46,7 @@ export default class CookieClicker extends Component<CookieClickerProps> {
 					<div
 						id="button-container"
 						className={cn(
-							"flex flex-col bg-(--container) rounded-2xl p-5",
+							"flex flex-col bg-container rounded-2xl p-5",
 							"w-50 h-60"
 						)}>
 						<button
@@ -54,8 +54,8 @@ export default class CookieClicker extends Component<CookieClickerProps> {
 							title="cookie-button"
 							className={cn(
 								"flex h-full w-full",
-								"hover:text-(--accent-light)",
-								"text-(--accent-muted)",
+								"hover:text-accent-light",
+								"text-accent-muted",
 								""
 							)}>
 							<MdOutlineCookie
@@ -65,7 +65,6 @@ export default class CookieClicker extends Component<CookieClickerProps> {
 						{/* TODO [ ]: make button component  */}
 						<div className={cn("flex justify-around")}>
 							<p className={cn("")}>
-								{" "}
 								Click counter: {this.state.clickCounter}
 							</p>
 						</div>
@@ -74,7 +73,7 @@ export default class CookieClicker extends Component<CookieClickerProps> {
 						id="result-display"
 						className={cn(
 							"flex flex-col",
-							"bg-(--container)",
+							"bg-container",
 							"p-5",
 							"rounded-2xl",
 							"w-full",

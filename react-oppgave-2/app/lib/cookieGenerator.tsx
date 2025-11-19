@@ -6,7 +6,6 @@ export default function cookiegenerator() {
 			name: "session_id",
 			value: Math.random().toString(36).slice(2),
 			domain: window.location.hostname,
-			// path: window.location.href,
 			path: window.location.pathname,
 			expires: new Date(Date.now() + Math.random() * 1e10),
 			httpOnly: Math.random() < 0.5,
@@ -17,7 +16,6 @@ export default function cookiegenerator() {
 			name: "preferences",
 			value: GetPreferences(),
 			domain: window.location.hostname,
-			// path: window.location.href,
 			path: window.location.pathname,
 			expires: new Date(Date.now() + Math.random() * 1e10),
 			httpOnly: Math.random() < 0.5,
@@ -30,7 +28,6 @@ export default function cookiegenerator() {
 				Math.random() * 1e10
 			)}`,
 			domain: window.location.hostname,
-			// path: window.location.href,
 			path: window.location.pathname,
 			expires: new Date(Date.now() + Math.random() * 1e10),
 			httpOnly: Math.random() < 0.5,

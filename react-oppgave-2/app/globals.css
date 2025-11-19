@@ -32,7 +32,7 @@
 	:root {
 		--background: #0a0a0a;
 		--container: lab(30 -0.956401 -12.3224);
-		--container-raised: lab(40 -0.956401 -12.3224);
+		--container-raised: rgba(255, 255, 255, 0.06);
 		--container-lowered: lab(20 0.811279 -12.254);
 		/* --container-lowered: lab(8.11897 0.811279 -12.254); */
 		--accent-light: rgb(192, 145, 94);
@@ -42,6 +42,9 @@
 		--foreground: #ededede2;
 		--foreground-darker: #ededed92;
 		--secondary: #ededed92;
+		--scrollbar-track: transparent;
+		--scrollbar-thumb: rgba(255, 255, 255, 0.06);
+		--scrollbar-thumb-hover: rgba(255, 255, 255, 0.12);
 	}
 }
 
@@ -72,27 +75,32 @@ html::-webkit-scrollbar-thumb {
 html::-webkit-scrollbar-thumb:hover {
 	background: var(--highlight);
 }
-@utility bento-grid {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: masonry; /* REAL MASONRY GRID */
-	gap: 1rem;
+/* this is to change the scrollbar design: */
+html::-webkit-scrollbar {
+	width: 0.5rem;
+	background: var(--scrollbar-track);
 }
 
-@utility bento-item {
-	background: rgb(30 30 30);
-	color: white;
-	border-radius: 1rem;
-	padding: 1rem;
-	width: fit-content;
-	height: fit-content;
-}
-.bento-grid {
-	gap: 1rem;
+html::-webkit-scrollbar-track {
+	background: var(--scrollbar-track);
+	border-radius: 0.25rem;
+	margin: 0.5rem 0;
 }
 
-@supports (grid-template-rows: masonry) {
-	.bento-grid {
-		grid-template-rows: masonry;
-	}
+html::-webkit-scrollbar-thumb {
+	background: var(--scrollbar-thumb);
+	border-radius: 0.25rem;
+	margin: 0.5rem 0;
+	border: 3px solid transparent;
+	background-clip: padding-box;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+	background: var(--scrollbar-thumb-hover);
+}
+
+/* Firefox */
+html {
+	scrollbar-width: thin;
+	scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
